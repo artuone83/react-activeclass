@@ -25,7 +25,6 @@ class App extends Component {
       name: 'Click element to add active class',
       active: null
     };
-    this.paragraph = createRef();
   }
 
   handleClick = (id)=> ()=> {
