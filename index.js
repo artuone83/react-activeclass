@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
@@ -16,40 +16,36 @@ const textData = [
     id: 3,
     text: 'Thanks for activating 😘'
   }
-]
+];
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'Click element to add active class',
-      active: null
-    };
-  }
+const activeStyle = {
+  background: 'hotpink',
+  color: 'white'
+};
 
-  handleClick = (id)=> ()=> {
+const App = ()=> {
+  const [name, setName] = useState('Click element to add active class');
+  const [activeId, setActiveId] = useState(null);
+
+  const handleClick = (id)=> ()=> {
     const activeElement = textData.find((item)=> item.id === id )
 
-    activeElement && this.setState({
-      active: id
-    })
-    console.log(activeElement);
+    activeElement && setActiveId(id)
+    console.log(activeElement.id);
   }
 
-  render() {
     return (
       <div>
-        <Hello name={this.state.name} />
+        <Hello name={name} />
         {textData.map(({id, text})=> {
           return <p 
-            style={ id === this.state.active ? {background: 'hotpink', color: 'white'} : {}} key={id}
-            onClick={this.handleClick(id)}>
-            { id === this.state.active ? text : 'Activate me, please'}
+            style={ id === activeId ? activeStyle : {}} key={id}
+            onClick={handleClick(id)}>
+            { id === activeId ? text : 'Activate me, please'}
           </p>
         })}
       </div>
     );
-  }
 }
 
 render(<App />, document.getElementById('root'));
