@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import Navigation from './Navigation';
 import './style.css';
 
 const textData = [
@@ -26,6 +27,7 @@ const activeStyle = {
 const App = ()=> {
   const [name, setName] = useState('Click element to add active class');
   const [activeId, setActiveId] = useState(null);
+  const [navOption, setNavOption] = useState('');
 
   const handleClick = (id)=> ()=> {
     const activeElement = textData.find((item)=> item.id === id )
@@ -34,8 +36,14 @@ const App = ()=> {
     console.log(activeElement.id);
   }
 
+  const handleNavClick = (event) => {
+    const getName = event.target.getAttribute('data-name'); 
+    setNavOption(getName);
+  }
+
     return (
       <div>
+        <Navigation currentOption={navOption} handleNavClick={handleNavClick} />
         <Hello name={name} />
         {textData.map(({id, text})=> {
           return <p 
