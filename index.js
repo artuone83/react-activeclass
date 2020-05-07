@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import Navigation from './Navigation';
+import * as pages from './components/pages';
 import './style.css';
 
 const textData = [
@@ -27,7 +28,23 @@ const activeStyle = {
 const App = ()=> {
   const [name, setName] = useState('Click element to add active class');
   const [activeId, setActiveId] = useState(null);
-  const [navOption, setNavOption] = useState('');
+  const [activeNavOption, setActiveNavOption] = useState('home');
+
+  const pageContent = () => {
+    switch (activeNavOption) {
+      case 'home':
+        return <pages.Home />;
+        break;
+      case 'about':
+        return <pages.About />;
+        break;
+      case 'contact':
+        return <pages.Contact />;
+        break;
+      default:
+        return
+    }
+  }
 
   const handleClick = (id)=> ()=> {
     const activeElement = textData.find((item)=> item.id === id )
@@ -38,12 +55,12 @@ const App = ()=> {
 
   const handleNavClick = (event) => {
     const getName = event.target.getAttribute('data-name'); 
-    setNavOption(getName);
+    setActiveNavOption(getName);
   }
 
     return (
       <div>
-        <Navigation currentOption={navOption} handleNavClick={handleNavClick} />
+        <Navigation currentOption={activeNavOption} handleNavClick={handleNavClick} />
         <Hello name={name} />
         {textData.map(({id, text})=> {
           return <p 
@@ -52,6 +69,9 @@ const App = ()=> {
             { id === activeId ? text : 'Activate me, please'}
           </p>
         })}
+        <main>
+          {pageContent()}
+        </main>
       </div>
     );
 }
