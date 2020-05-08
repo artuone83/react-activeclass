@@ -53,14 +53,14 @@ const App = ()=> {
     console.log(activeElement.id);
   }
 
-  const handleNavClick = (event) => {
+  const handleNavOptionClick = (event) => {
     const getName = event.target.getAttribute('data-name'); 
     setActiveNavOption(getName);
   }
 
     return (
       <div>
-        <Navigation currentOption={activeNavOption} handleNavClick={handleNavClick} />
+        <Navigation currentOption={activeNavOption} handleNavOptionClick={handleNavOptionClick} />
         <Hello name={name} />
         {textData.map(({id, text})=> {
           return <p 
