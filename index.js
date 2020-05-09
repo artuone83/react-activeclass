@@ -60,8 +60,8 @@ const App = () => {
   };
 
   const handleNavOptionClick = event => {
-    const getName = event.target.getAttribute("data-name");
-    setActiveNavOption(getName);
+    const navOptionName = event.target.getAttribute("data-name");
+    setActiveNavOption(navOptionName);
   };
 
   return (
