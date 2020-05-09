@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useState } from "react";
+import ActiveClass from "../ActiveClass";
 
-const Home = ()=> {
-  return <div>
-    Hello from Home.jsx
-  </div>
-}
+const textData = [
+  {
+    id: 1,
+    text: "Yes! I'm active 💪"
+  },
+  {
+    id: 2,
+    text: "My turn now 🤠"
+  },
+  {
+    id: 3,
+    text: "Thanks for activating 😘"
+  }
+];
+
+const activeStyle = {
+  background: "hotpink",
+  color: "white"
+};
+
+const Home = () => {
+  const [activeId, setActiveId] = useState(null);
+
+  const handleClick = id => () => {
+    const activeElement = textData.find(item => item.id === id);
+
+    activeElement && setActiveId(id);
+    console.log(activeElement.id);
+  };
+
+  return (
+    <div>
+      <ActiveClass
+        data={textData}
+        onClick={handleClick}
+        activeId={activeId} />
+    </div>
+  );
+};
 
 export default Home;
