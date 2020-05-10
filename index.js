@@ -75,8 +75,8 @@ const App = () => {
       {textData.map(({ id, text }) => {
         return (
           <p
-            style={id === activeId ? activeStyle : {}}
             key={id}
+            style={id === activeId ? activeStyle : {}}
             onClick={handleClick(id)}
           >
             {id === activeId ? text : "Activate me, please"}
