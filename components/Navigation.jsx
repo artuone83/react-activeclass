@@ -56,7 +56,7 @@ const Navigation = forwardRef(
             navigationOptions.map(({ id, option }) => {
               return (
                 <li
-                  key={name}
+                  key={option}
                   style={currentOption === option ? activeStyle : listItem}
                   data-name={option}
                   onClick={handleNavOptionClick}
