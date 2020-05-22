@@ -29,12 +29,12 @@ const App = () => {
   const [name, setName] = useState("Click element to add active class");
   const [activeId, setActiveId] = useState(null);
   const [activeNavOption, setActiveNavOption] = useState("home");
-  const [navigationHeight, setNavigationHeight] = useState(undefined)
+  const [navigationHeight, setNavigationHeight] = useState(undefined);
   const navigation = React.createRef();
 
   useEffect(() => {
     setNavigationHeight(navigation.current.offsetHeight);
-  },[]);
+  }, []);
 
   const pageContent = () => {
     switch (activeNavOption) {
@@ -65,26 +65,28 @@ const App = () => {
   };
 
   return (
-    <div style={{marginTop: `${navigationHeight + 20}px`}}>
+    <>
       <Navigation
         ref={navigation}
         currentOption={activeNavOption}
         handleNavOptionClick={handleNavOptionClick}
       />
-      <Hello name={name} />
-      {textData.map(({ id, text }) => {
-        return (
-          <p
-            key={id}
-            style={id === activeId ? activeStyle : {}}
-            onClick={handleClick(id)}
-          >
-            {id === activeId ? text : "Activate me, please"}
-          </p>
-        );
-      })}
-      <main>{pageContent()}</main>
-    </div>
+      <div style={{ marginTop: `${navigationHeight + 20}px` }}>
+        <Hello name={name} />
+        {textData.map(({ id, text }) => {
+          return (
+            <p
+              key={id}
+              style={id === activeId ? activeStyle : {}}
+              onClick={handleClick(id)}
+            >
+              {id === activeId ? text : "Activate me, please"}
+            </p>
+          );
+        })}
+        <main>{pageContent()}</main>
+      </div>
+    </>
   );
 };
 
