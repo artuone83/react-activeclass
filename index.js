@@ -73,17 +73,6 @@ const App = () => {
       />
       <div style={{ marginTop: `${navigationHeight + 20}px` }}>
         <Hello name={name} />
-        {textData.map(({ id, text }) => {
-          return (
-            <p
-              key={id}
-              style={id === activeId ? activeStyle : {}}
-              onClick={handleClick(id)}
-            >
-              {id === activeId ? text : "Activate me, please"}
-            </p>
-          );
-        })}
         <main>{pageContent()}</main>
       </div>
     </>
