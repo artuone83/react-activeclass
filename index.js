@@ -26,7 +26,7 @@ const activeStyle = {
 };
 
 const App = () => {
-  const [name, setName] = useState("Click element to add active class");
+  const [message, setMessage] = useState("I'm in container under fixed navigation.");
   const [activeId, setActiveId] = useState(null);
   const [activeNavOption, setActiveNavOption] = useState("home");
   const [navigationHeight, setNavigationHeight] = useState(undefined);
@@ -72,7 +72,7 @@ const App = () => {
         handleNavOptionClick={handleNavOptionClick}
       />
       <div style={{ marginTop: `${navigationHeight + 20}px` }}>
-        <Hello name={name} />
+        <Hello message={message} />
         <main>{pageContent()}</main>
       </div>
     </>
