@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { render } from "react-dom";
 import Hello from "./components/Hello";
 import Navigation from "./components/Navigation";
