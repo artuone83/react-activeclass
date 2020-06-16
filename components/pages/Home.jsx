@@ -33,6 +33,7 @@ const Home = () => {
 
   return (
     <div>
+      <h2>Hello from Home.js</h2>
       <ActiveClass
         data={textData}
         onClick={handleClick}
