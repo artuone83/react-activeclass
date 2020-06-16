@@ -27,7 +27,6 @@ const activeStyle = {
 
 const App = () => {
   const [message, setMessage] = useState("I'm in container under fixed navigation.");
-  const [activeId, setActiveId] = useState(null);
   const [activeNavOption, setActiveNavOption] = useState("home");
   const [navigationHeight, setNavigationHeight] = useState(undefined);
   const navigation = React.createRef();
