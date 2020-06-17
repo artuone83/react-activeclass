@@ -5,21 +5,6 @@ import Navigation from "./components/Navigation";
 import * as pages from "./components/pages";
 import "./style.css";
 
-const textData = [
-  {
-    id: 1,
-    text: "Yes! I'm active 💪"
-  },
-  {
-    id: 2,
-    text: "My turn now 🤠"
-  },
-  {
-    id: 3,
-    text: "Thanks for activating 😘"
-  }
-];
-
 const activeStyle = {
   background: "hotpink",
   color: "white"
@@ -49,13 +34,6 @@ const App = () => {
       default:
         return;
     }
-  };
-
-  const handleClick = id => () => {
-    const activeElement = textData.find(item => item.id === id);
-
-    activeElement && setActiveId(id);
-    console.log(activeElement.id);
   };
 
   const handleNavOptionClick = event => {
