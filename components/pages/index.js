@@ -1,5 +1,3 @@
-import About from './About';
-import Contact from './Contact';
-import Home from './Home';
-
-export  {About, Contact, Home}
+export {default as About} from './About';
+export {default as Contact} from './Contact';
+export {default as Home} from './Home';

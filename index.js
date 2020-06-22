@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { render } from "react-dom";
 import Hello from "./components/Hello";
 import Navigation from "./components/Navigation";
-import * as pages from "./components/pages";
+import {About, Contact, Home} from "./components/pages";
 import "./style.css";
 
 const activeStyle = {
@@ -23,13 +23,13 @@ const App = () => {
   const pageContent = () => {
     switch (activeNavOption) {
       case "home":
-        return <pages.Home />;
+        return <Home />;
         break;
       case "about":
-        return <pages.About />;
+        return <About />;
         break;
       case "contact":
-        return <pages.Contact />;
+        return <Contact />;
         break;
       default:
         return;
