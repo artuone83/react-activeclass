@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { render } from "react-dom";
 import Hello from "./components/Hello";
 import Navigation from "./components/Navigation";
@@ -31,10 +31,14 @@ const App = () => {
     }
   };
 
-  const handleNavOptionClick = event => {
-    const navOptionName = event.target.getAttribute("data-name");
-    setActiveNavOption(navOptionName);
-  };
+  const handleNavOptionClick = useCallback(
+    event => {
+      console.log('I was called');
+      const navOptionName = event.target.getAttribute("data-name");
+      setActiveNavOption(navOptionName);
+  },
+  [activeNavOption]
+  );
 
   return (
     <>
