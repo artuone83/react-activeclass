@@ -5,11 +5,6 @@ import Navigation from "./components/Navigation";
 import {About, Contact, Home} from "./components/pages";
 import "./style.css";
 
-const activeStyle = {
-  background: "hotpink",
-  color: "white"
-};
-
 const App = () => {
   const [message, setMessage] = useState("I'm in container under fixed navigation.");
   const [activeNavOption, setActiveNavOption] = useState("home");
