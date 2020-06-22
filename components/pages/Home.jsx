@@ -16,11 +16,6 @@ const textData = [
   }
 ];
 
-const activeStyle = {
-  background: "hotpink",
-  color: "white"
-};
-
 const Home = () => {
   const [activeId, setActiveId] = useState(null);
 
