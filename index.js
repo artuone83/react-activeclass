@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { render } from "react-dom";
 import Hello from "./components/Hello";
 import Navigation from "./components/Navigation";
-import {About, Contact, Home} from "./components/pages";
+import { About, Contact, Home } from "./components/pages";
 import "./style.css";
 
 const App = () => {
